@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Alidar</title>
+    <style>
+        body {
+            background-color: #222831; 
+            color: #fcfefe; 
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            position: relative;
+            scroll-behavior: smooth;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .image-frame {
+            border: 10px solid  #88d498; 
+            margin-right: 40px;
+            box-shadow: 0 0 10px #88d498, 0 0 20px #88d498, 0 0 30px #88d498,
+                0 0 40px  #88d498, 0 0 50px #88d498, 0 0 75px #88d498;
+        }
+        h1,
+        h2 {
+            margin: 0;
+        }
+        h1 {
+            font-size: 3em;
+            color:  #fcfefe; 
+            text-shadow: 0 0 10px #88d498, 0 0 20px #88d498, 0 0 30px #88d498,
+                0 0 40px  #88d498, 0 0 50px #88d498, 0 0 75px #88d498;
+        }
+        h2 {
+            font-size: 2em;
+        }
+        .neon-green {
+            color:  #1a936f;
+            text-shadow: 0 0 10px #88d498, 0 0 20px #88d498, 0 0 30px #88d498,
+                0 0 40px  #88d498, 0 0 50px #88d498, 0 0 75px #88d498;
+        }
+        .more-info {
+            display: block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color:  #88d498; 
+            color: #000000; 
+            text-decoration: none;
+            font-size: 1.5em;
+            border-radius: 10px;
+            font-weight: bold;
+            border: 2px solid #88d498; 
+            text-align: center;
+            box-shadow:  00 0 10px #88d498, 0 0 20px #88d498, 0 0 30px #88d498,
+                0 0 40px  #88d498, 0 0 50px #88d498, 0 0 75px #88d498;
+        }
+        .cell-button {
+            display: block;
+            width: 50px;
+            height: 50px;
+            background-color: #a9eca2; 
+            border-radius: 50%;
+            border: none;
+            box-shadow: 0 0 10px #88d498, 0 0 20px #88d498, 0 0 30px #88d498,
+                0 0 40px  #88d498, 0 0 50px #88d498, 0 0 75px #88d498;
+            cursor: pointer;
+            position: relative;
+            top: 5px;
+            left: 0;
+            margin: auto;
+        }
+        .cell {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0); 
+            border-radius: 50%;
+            position: absolute;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0), 0 0 20px rgba(0, 0, 0, 0),
+                0 0 30px rgba(0, 0, 0, 0), 0 0 40px rgba(0, 0, 0, 0),
+                0 0 50px rgba(0, 0, 0, 0), 0 0 75px rgba(0, 0, 0, 0);
+        }
+        .cell-inner-circle {
+            width: 25px;
+            height: 25px;
+            background-color: #1a936f; 
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        @keyframes shake {
+            0% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(1px, 1px);
+            }
+            100% {
+                transform: translate(-1px, -1px);
+            }
+        }
+        .cell {
+            animation: shake 0.05s infinite alternate;
+        }
+
+        .text-box {
+            margin: 300px auto; 
+            max-width: 800px;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .neon-circle {
+            width: 120px;
+            height: 120px;
+            background-color: #00918e;
+            border-radius: 50%;
+            margin: 60px;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            border: 5px solid #88d498; 
+        }
+        .neon-circle:nth-child(1),
+        .neon-circle:nth-child(2),
+        .neon-circle:nth-child(3),
+        .neon-circle:nth-child(5),
+        .neon-circle:nth-child(7) {
+            animation: neon-glow 1.5s infinite alternate;
+        }
+        @keyframes neon-glow {
+            0% {
+                box-shadow: 00 0 10px #88d498, 0 0 20px #88d498, 0 0 30px #88d498,
+                0 0 40px  #88d498, 0 0 50px #88d498, 0 0 75px #88d498;
+            }
+            100% {
+                box-shadow: 00 0 10px #88d498, 0 0 20px #88d498, 0 0 30px #88d498,
+                0 0 40px  #88d498, 0 0 50px #88d498, 0 0 75px #88d498;
+            }
+        }
+        .neon-circle:nth-child(4),
+        .neon-circle:nth-child(6),
+        .neon-circle:nth-child(8) {
+            background-color: transparent;
+        }
+        .neon-circle:nth-child(4) h2,
+        .neon-circle:nth-child(6) h2,
+        .neon-circle:nth-child(8) h2 {
+            color: #000000;
+            text-align: center;
+            margin-top: 5px;
+        }
+        .neon-circle:nth-child(4) h2 {
+            margin-top: 10px;
+        }
+        .neon-circle:nth-child(6) h2 {
+            margin-top: 0;
+        }
+        .neon-circle:nth-child(8) h2 {
+            margin-top: 15px;
+        }
+        @media (max-width: 768px) {
+            .text-box {
+                max-width: 90%;
+            }
+        }
+        .projects-box {
+            margin: 300px auto; 
+            max-width: 800px;
+            padding: 20px;
+           
+            border-radius: 10px;
+            text-align: center;
+        }
+        .neon-circle-project {
+            width: 1600px;
+            height: 400px;
+            background-color:#88d498;
+            border-radius: 10px;
+            margin: 25px auto;
+            position: relative;
+            overflow: hidden;
+            border: 5px solid #88d498; 
+        }
+        .neon-circle-project img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .neon-circle-project h2 {
+            color: #000000; 
+            text-align: center;
+            margin-top: 5px;
+        }
+        .click-text {
+            color: #29a19c;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .navigation-buttons {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            z-index: 1000;
+        }
+        .navigation-button {
+            background-color: #1a936f;
+            color: #88d498; 
+            border: 2px solid #88d498; 
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px #88d498, 0 0 20px #88d498, 0 0 30px #88d498,
+                0 0 40px  #88d498, 0 0 50px #88d498, 0 0 75px #88d498;
+        }
+        .navigation-button:hover {
+            transform: scale(1.1);
+            background-color: #88d498; 
+            color:#29a19c; /
+        }
+        .neon {
+            text-shadow: 0 0 10px #88d498, 0 0 20px #88d498, 0 0 30px #88d498,
+                0 0 40px  #88d498, 0 0 50px #88d498, 0 0 75px #88d498;
+        }
+        .blog-box {
+            margin: 50px auto;
+            max-width: 800px;
+            padding: 20px;
+            border-radius: 10px;
+         
+                    text-align: center;
+        }
+        .blog-text {
+            margin-top: 20px;
+            text-align: center;
+
+            .myblog {
+            width: 500px;
+            height: 500px;
+            background-color:#88d498;
+            border-radius: 10px;
+            margin: 25px auto;
+            position: relative;
+            overflow: hidden;
+            border: 5px solid #88d498; 
+
+        }
+        .myblog img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .myblog h2 {
+            color: #000000; 
+            text-align: center;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navigation-buttons">
+        <a href="#alidar" class="navigation-button">My name is Alidar</a>
+        <a href="#about" class="navigation-button">About me</a>
+        <a href="#skills" class="navigation-button">My Skills</a>
+        <a href="#projects" class="navigation-button">My Projects</a>
+       <a href="#myblog" class="navigation-button">My blog</a>
+    </div>
+
+    <div class="left neon"></div>
+    <div class="right neon"></div>
+
+    <div id="alidar" class="container">
+        <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" target="_blank">
+            <img src="https://i.ibb.co.com/Yk4W2jJ/Whats-App-2024-04-16-21-41-43-e359514d.jpg" alt="Whats-App-2024-04-16-21-41-43-e359514d" class="image-frame">
+        </a>
+        <div>
+            <h1>My name is Alidar</h1>
+            <h2>And I'm a <span class="neon-green">biologist</span> at NSFM</h2>
+            <a href="https://www.youtube.com/watch?v=nDUQ-MvnO6s" class="more-info">more info</a>
+            <button class="cell-button" id="cellButton"></button>
+            <p class="neon-green">Tap! Tap!</p>
+        </div>
+    </div>
+
+    <div id="cellContainer"></div>
+
+    <div class="neon-green-line left"></div>
+    <div class="neon-green-line right"></div>
+
+    <div id="about" class="text-box">
+        <h1>About me</h1>
+        <h2>I was born in 2010 in Almaty, I study at NFMS and I really love biology. I also have a brown Labrador dog.     geda💨gegi🤑daga🎭daga🤖o  abin  maried👼🏼along🚧time✔ago👨🏼‍🏭Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </h2>
+    </div>
+
+    <div id="skills" class="text-box">
+        <h1>My Skills</h1>
+        <div class="container">
+            
+<style>
+    
+    div {
+    
+        margin-right: 20px; 
+    }
+    
+   
+    div:last-child {
+        margin-right: 0;
+    }
+</style>
+
+<div>
+    <h1>HTML</h1>
+    <h1 class="neon-green">20%</h1>
+</div>
+<div>
+    <h1>PCgames</h1>
+    <h1 class="neon-green">20%</h1>
+</div>
+<div>
+    <h1>JavaScript</h1>
+    <h1 class="neon-green">10%</h1>
+</div>
+<div>
+    <h1>Biology</h1>
+    <h1 class="neon-green">50%</h1>
+</div>
+        </div>
+    </div>
+
+    <div id="projects" class="projects-box">
+        <h1>My Projects</h1>
+        <div class="container">
+            <div class="neon-circle-project">
+                <img src="https://static4.depositphotos.com/1013501/430/i/450/depositphotos_4308060-stock-photo-project.jpg" alt="Project 1">
+                <h1>There will be projects coming soon...</h1>
+            </div>
+        </div>
+    </div>
+
+    <div id="myblog" class="myblog">
+        <h1>My Blog</h1>
+        <div class="blog-text">
+            <h2>ㅤCheck my articles on Medium.I try to be active!</h2>
+            <div class="myblog">
+              <a href="https://medium.com/@AlidarBIo">
+            <img src="https://i.ibb.co.com/cQcGqVz/biology-5.png">
+
+
+        </div>
+    </div>
+    <script>
+    document.querySelectorAll('a.navigation-button').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const target = document.querySelector(this.getAttribute('href'));
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    });
+</script>
+</body>
+</html>
