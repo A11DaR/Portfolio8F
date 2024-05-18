@@ -23,8 +23,8 @@
         .image-frame {
             border: 10px solid  #88d498; 
             margin-right: 40px;
-            box-shadow: 0 0 10px #88d498, 0 0 20px #88d498, 0 0 30px #88d498,
-                0 0 40px  #88d498, 0 0 50px #88d498, 0 0 75px #88d498;
+            box-shadow: 0 0 5px #88d498, 0 0 10px #88d498, 0 0 15px #88d498,
+                0 0 20px  #88d498, 0 0 25px #88d498, 0 0 35px #88d498;
         }
         h1,
         h2 {
@@ -49,15 +49,15 @@
             margin-top: 20px;
             padding: 10px 20px;
             background-color:  #88d498; 
-            color: #000000; 
+            color: #fcfefe; 
             text-decoration: none;
             font-size: 1.5em;
             border-radius: 10px;
             font-weight: bold;
             border: 2px solid #88d498; 
             text-align: center;
-            box-shadow:  00 0 10px #88d498, 0 0 20px #88d498, 0 0 30px #88d498,
-                0 0 40px  #88d498, 0 0 50px #88d498, 0 0 75px #88d498;
+            box-shadow:  00 0 1px #88d498, 0 0 5px #88d498, 0 0 10px #88d498,
+                0 0 15px  #88d498, 0 0 20px #88d498, 0 0 35px #88d498;
         }
         .cell-button {
             display: block;
@@ -203,72 +203,37 @@
             text-decoration: underline;
             cursor: pointer;
         }
-        .navigation-buttons {
+       
+.navigation-buttons {
             position: fixed;
             top: 20px;
-            left: 20px;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
-            flex-direction: column;
-            align-items: flex-start;
+            flex-direction: row;
+            align-items: center;
             gap: 10px;
             z-index: 1000;
+            background-color: #88d498; 
+            padding: 10px;
+            border-radius: 10px;
         }
         .navigation-button {
             background-color: #1a936f;
-            color: #88d498; 
+            color: #fcfefe; 
             border: 2px solid #88d498; 
-            padding: 10px 20px;
+            padding: 5px 10px;
             border-radius: 10px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.2em;
+            font-size: 0.8em;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 0 10px #88d498, 0 0 20px #88d498, 0 0 30px #88d498,
-                0 0 40px  #88d498, 0 0 50px #88d498, 0 0 75px #88d498;
         }
         .navigation-button:hover {
             transform: scale(1.1);
             background-color: #88d498; 
-            color:#29a19c; /
-        }
-        .neon {
-            text-shadow: 0 0 10px #88d498, 0 0 20px #88d498, 0 0 30px #88d498,
-                0 0 40px  #88d498, 0 0 50px #88d498, 0 0 75px #88d498;
-        }
-        .blog-box {
-            margin: 50px auto;
-            max-width: 800px;
-            padding: 20px;
-            border-radius: 10px;
-         
-                    text-align: center;
-        }
-        .blog-text {
-            margin-top: 20px;
-            text-align: center;
-
-            .myblog {
-            width: 500px;
-            height: 500px;
-            background-color:#88d498;
-            border-radius: 10px;
-            margin: 25px auto;
-            position: relative;
-            overflow: hidden;
-            border: 5px solid #88d498; 
-
-        }
-        .myblog img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .myblog h2 {
-            color: #000000; 
-            text-align: center;
-            margin-top: 5px;
-        }
+            color: #29a19c;
     </style>
 </head>
 <body>
@@ -288,11 +253,11 @@
             <img src="https://i.ibb.co.com/Yk4W2jJ/Whats-App-2024-04-16-21-41-43-e359514d.jpg" alt="Whats-App-2024-04-16-21-41-43-e359514d" class="image-frame">
         </a>
         <div>
-            <h1>My name is Alidar</h1>
-            <h2>And I'm a <span class="neon-green">biologist</span> at NSFM</h2>
-            <a href="https://www.youtube.com/watch?v=nDUQ-MvnO6s" class="more-info">more info</a>
-            <button class="cell-button" id="cellButton"></button>
-            <p class="neon-green">Tap! Tap!</p>
+            <h1 style="font-size: 4em; margin-bottom: 10px;">My name is Alidar</h1>
+            <h3 style="margin-top: 0;">And I'm a biologist at NSFM</h3>
+            <a href  margin-bottom: 10px;=" https://www.youtube.com/watch?v=nDUQ-MvnO6s" class="more-info">more info</a>
+           
+          
         </div>
     </div>
 
@@ -303,7 +268,7 @@
 
     <div id="about" class="text-box">
         <h1>About me</h1>
-        <h2>I was born in 2010 in Almaty, I study at NFMS and I really love biology. I also have a brown Labrador dog.     geda💨gegi🤑daga🎭daga🤖o  abin  maried👼🏼along🚧time✔ago👨🏼‍🏭Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </h2>
+        <h2>I was born in 2010 in Almaty, I study at NFMS and I really love biology. I also have a brown Labrador dog.     geda💨gegi🤑daga🎭daga🤖o  abin  maried👼🏼along🚧time✔ago👨🏼 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</h2>
     </div>
 
     <div id="skills" class="text-box">
